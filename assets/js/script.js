@@ -1,6 +1,8 @@
 let hide = document.querySelector("#head");
 let hide1 = document.querySelector("#removeAll");
 
+let arr = [];
+
 let uploadIcon=document.getElementById("upload");
 uploadIcon.onclick=function(){
     this.nextElementSibling.click()
@@ -92,12 +94,22 @@ uploadIcon.nextElementSibling.onchange=function(e){
             icon.className = "fas fa-trash-alt";
             tdDelete.appendChild(icon);
 
+            arr.push(tr)
+
             tdDelete.onclick=function(){                
                 this.parentElement.remove();
                 fileCount--;
                 let files = table.lastElementChild.getElementsByTagName("tr");
                 for(let i = 0; i < files.length; i++) {
                     files[i].getElementsByTagName("td")[0].innerText = i+1;
+                }
+                
+                arr.pop();
+            console.log(arr);
+
+                if(arr.length<1){
+                    hide.classList.add("rem");
+                    hide1.classList.add("rem");
                 }
             }
 

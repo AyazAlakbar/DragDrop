@@ -1,17 +1,16 @@
 
 
-body{
-    background-color: rgb(106, 137, 222);
-}
 
 .container1{
-    width: 1000px;
+    width: 700px;
     height: 250px;
-    border:2px dotted gainsboro;
+    border:2px solid gainsboro;
+    border-radius: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+    background-color: rgb(255, 225, 0);
 }
 
 .item{
@@ -22,4 +21,9 @@ body{
 }
 
 
+
+.rem{
+    display: none;
+
+}
 

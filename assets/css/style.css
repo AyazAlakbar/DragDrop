@@ -1,5 +1,8 @@
 
-
+body{
+   background: rgb(219,219,230);
+   background: linear-gradient(90deg, rgba(219,219,230,1) 0%, rgba(132,167,207,1) 100%);
+}
 
 .container1{
     width: 700px;
@@ -10,7 +13,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    background-color: rgb(255, 225, 0);
+    background-color: rgb(220, 208, 116);
 }
 
 .item{

@@ -67,7 +67,7 @@ uploadIcon.nextElementSibling.onchange=function(e){
             td.innerText = fileCount++;
 
                  
-
+    
             let tdName=document.createElement("td");
             tdName.innerText=file.name;
 

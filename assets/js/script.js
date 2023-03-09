@@ -4,6 +4,15 @@ uploadIcon.onclick=function(){
 }
 
 
+let removeAll = document.getElementById('removeAll');
+removeAll.onclick = function() {
+  let tableRows = document.querySelectorAll('table tr');
+  for (let i = 1; i < tableRows.length; i++) {
+    tableRows[i].remove();
+  }
+
+};
+
 
 let icon = document.createElement("i");
 icon.className = "fas fa-trash-alt";
@@ -24,7 +33,7 @@ uploadIcon.nextElementSibling.onchange=function(e){
     Upload(e.dataTransfer.files)
  }
 
- let fileCount = 0;
+ let fileCount = 1;
  function Upload(files){
     Array.from(files).forEach(file=>{
         let reader=new FileReader();
@@ -38,7 +47,7 @@ uploadIcon.nextElementSibling.onchange=function(e){
             
             
             let td=document.createElement("td");
-            td.innerText = ++fileCount;
+            td.innerText = fileCount++;
                  
 
             let tdName=document.createElement("td");
@@ -64,12 +73,13 @@ uploadIcon.nextElementSibling.onchange=function(e){
             icon.className = "fas fa-trash-alt";
             tdDelete.appendChild(icon);
 
-            tdDelete.onclick=function(){
-                
+            tdDelete.onclick=function(){                
                 this.parentElement.remove();
-                tdDelete.remove=fileCount--;
-                
-                
+                fileCount--;
+                let files = table.lastElementChild.getElementsByTagName("tr");
+                for(let i = 0; i < files.length; i++) {
+                    files[i].getElementsByTagName("td")[0].innerText = i+1;
+                }
             }
 
             tr.append(td,tdName,tdImage,tdSize,tdDelete);
